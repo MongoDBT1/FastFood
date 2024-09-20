@@ -1,0 +1,13 @@
+Tải xampp
+lấy file php_mongodb.dll có trong file
+cop dán vào thư mục php/ext trong xampp
+sau đó mở xampp lên chọn vào config ở mục apache, chọn php.ini mở file lên gắn đoạn này vào file extension=php_mongodb.dll sau đó lưu lại và tắt apache khởi động lại xampp
+sau đó mở terminal lên chạy lệnh composer require jenssegers/mongodb
+vô file .env dán phân này vào 
+DB_CONNECTION=mongodb
+DB_HOST=127.0.0.1       # Hoặc địa chỉ IP của server MongoDB
+DB_PORT=27017           # Cổng mặc định của MongoDB
+DB_DATABASE=ten_database_cua_ban
+DB_USERNAME=            # Nếu MongoDB không yêu cầu xác thực, có thể để trống
+DB_PASSWORD=
+ 

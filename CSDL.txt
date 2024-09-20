@@ -1,0 +1,153 @@
+// Collection: NguoiDung 
+{
+  _id: ObjectId,
+  hoTen: String,
+  email: String,
+  soDienThoai: String,
+  diaChi: [
+    {
+      tenDiaChi: String,
+      soNha: String,
+      duong: String,
+      phuong: String,
+      quan: String,
+      thanhPho: String
+    }
+  ],
+  matKhau: String,
+  ngayTao: Date,
+  vaiTro: String // "KhachHang", "NhanVienGiaoHang", "QuanTriVien"
+}
+
+// Collection: NhaHang
+{
+  _id: ObjectId,
+  tenNhaHang: String,
+  moTa: String,
+  diaChi: {
+    soNha: String,
+    duong: String,
+    phuong: String,
+    quan: String,
+    thanhPho: String
+  },
+  soDienThoai: String,
+  email: String,
+  gioMoCua: String,
+  gioDongCua: String,
+  danhGia: Number,
+  hinhAnh: [String],
+  loaiAmThuc: [String],
+  menu: [
+    {
+      tenMon: String,
+      moTa: String,
+      gia: Number,
+      hinhAnh: String,
+      loaiMon: String, // "KhaiVi", "MonChinh", "TrangMieng", "DoUong"
+      tuyChon: [
+        {
+          tenTuyChon: String,
+          giaBoSung: Number
+        }
+      ]
+    }
+  ]
+}
+
+// Collection: DonHang 
+{
+  _id: ObjectId,
+  khachHang: {
+    hoTen: String,
+    email: String,
+    soDienThoai: String
+  },
+  nhaHang: {
+    tenNhaHang: String,
+    diaChi: {
+      soNha: String,
+      duong: String,
+      phuong: String,
+      quan: String,
+      thanhPho: String
+    },
+    soDienThoai: String
+  },
+  trangThai: String, // "ChoXacNhan", "DangChuanBi", "DangGiao", "DaGiao", "DaHuy"
+  diaChiGiao: {
+    tenDiaChi: String,
+    soNha: String,
+    duong: String,
+    phuong: String,
+    quan: String,
+    thanhPho: String
+  },
+  thoiGianDat: Date,
+  thoiGianGiao: Date,
+  tongTien: Number,
+  phuongThucThanhToan: String, // "TienMat", "TheTinDung", "ViDienTu"
+  ghiChu: String,
+  danhSachMon: [
+    {
+      tenMon: String,
+      soLuong: Number,
+      gia: Number,
+      tongGia: Number,
+      tuyChonDaChon: [
+        {
+          tenTuyChon: String,
+          giaBoSung: Number
+        }
+      ]
+    }
+  ],
+  nhanVienGiao: {
+    hoTen: String,
+    soDienThoai: String
+  }
+}
+
+// Collection: DanhGia
+{
+  _id: ObjectId,
+  donHang: {
+    maDonHang: ObjectId,
+    tenNhaHang: String,
+    thoiGianDat: Date
+  },
+  khachHang: {
+    hoTen: String,
+    email: String
+  },
+  diemDanhGia: Number,
+  noiDung: String,
+  hinhAnh: [String],
+  ngayDanhGia: Date,
+  phanHoiNhaHang: {
+    noiDung: String,
+    ngayPhanHoi: Date
+  }
+}
+
+// Collection: KhuyenMai 
+{
+  _id: ObjectId,
+  tenKhuyenMai: String,
+  moTa: String,
+  maGiamGia: String,
+  loaiGiamGia: String, // "PhanTram", "SoTien"
+  giaTriGiam: Number,
+  dieuKienApDung: {
+    giaTriDonHangToiThieu: Number,
+    soLuongSuDungToiDa: Number
+  },
+  thoiGianBatDau: Date,
+  thoiGianKetThuc: Date,
+  danhSachNhaHangApDung: [
+    {
+      tenNhaHang: String,
+      diaChi: String
+    }
+  ]
+}
