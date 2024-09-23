@@ -1,10 +1,12 @@
-Tải php phiên bản 8.2 nha, để phù hợp với drive(php_mongodb.dll) đã gửi bên dưới.
-Tải xampp
-lấy file php_mongodb.dll có trong file
+Hướng dẫn setup khi clone về máy:
+1. Tải php phiên bản 8.2 nha, để phù hợp với drive(php_mongodb.dll) đã gửi bên dưới.
+2.Tải xampp
+3.Khi clone code về xong, nhập lệnh composer install trên terminal để thiết lập lại file( ai chưa có composer thì lên mạng cài thì mới dùng được laravel), sau đó tìm file .env.example thì mình đổi lại tên là .env
+4.lấy file php_mongodb.dll có trong file
 cop dán vào thư mục php/ext trong xampp
 sau đó mở xampp lên chọn vào config ở mục apache, chọn php.ini mở file lên gắn đoạn này vào file extension=php_mongodb.dll sau đó lưu lại và tắt apache khởi động lại xampp
-sau đó mở terminal lên chạy lệnh composer require jenssegers/mongodb
-vô file .env dán phân này vào 
+5.sau đó mở terminal lên chạy lệnh composer require jenssegers/mongodb
+6.vô file .env dán phân này vào 
 DB_CONNECTION=mongodb
 DB_HOST=127.0.0.1       # Hoặc địa chỉ IP của server MongoDB
 DB_PORT=27017           # Cổng mặc định của MongoDB
@@ -12,7 +14,6 @@ DB_DATABASE=ten_database_cua_ban
 DB_USERNAME=            # Nếu MongoDB không yêu cầu xác thực, có thể để trống
 DB_PASSWORD=
 
-Hướng dẫn setup khi clone về máy:
-Khi clone về, file thì ngay file envexample thì mình đổi lại tên là .env sau đó làm các bước như trên là được.
+
 
  
