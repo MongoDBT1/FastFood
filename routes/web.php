@@ -14,7 +14,7 @@ Route::get('/Checkout',[BillController::class,'Checkout'])->name("Checkout");
 Route::get('/Checkout/success',[BillController::class,'Success'])->name("Success");
 
 // Admin
-Route::get('/', function() {
+Route::get('/admin', function() {
     return view('admin.index.home');
 });
 
