@@ -1,0 +1,69 @@
+[{
+  "_id": {
+    "$oid": "66f559ad5a356ec401987c66"
+  },
+  "hoTen": "Nguyen Van A",
+  "email": "nguyenvana@example.com",
+  "soDienThoai": "0912345678",
+  "diaChi": [
+    {
+      "tenDiaChi": "Home",
+      "soNha": "123",
+      "duong": "Le Loi",
+      "phuong": "Ben Nghe",
+      "quan": "Quan 1",
+      "thanhPho": "Ho Chi Minh"
+    }
+  ],
+  "matKhau": "password123",
+  "ngayTao": {
+    "$date": "2023-01-01T00:00:00.000Z"
+  },
+  "vaiTro": "KhachHang"
+},
+{
+  "_id": {
+    "$oid": "66f559ad5a356ec401987c67"
+  },
+  "hoTen": "Tran Thi B",
+  "email": "tranthib@example.com",
+  "soDienThoai": "0987654321",
+  "diaChi": [
+    {
+      "tenDiaChi": "Office",
+      "soNha": "456",
+      "duong": "Nguyen Hue",
+      "phuong": "Ben Nghe",
+      "quan": "Quan 1",
+      "thanhPho": "Ho Chi Minh"
+    }
+  ],
+  "matKhau": "securepassword",
+  "ngayTao": {
+    "$date": "2023-02-15T00:00:00.000Z"
+  },
+  "vaiTro": "NhanVienGiaoHang"
+},
+{
+  "_id": {
+    "$oid": "66f559ad5a356ec401987c68"
+  },
+  "hoTen": "Le Van C",
+  "email": "levanc@example.com",
+  "soDienThoai": "0909123456",
+  "diaChi": [
+    {
+      "tenDiaChi": "Apartment",
+      "soNha": "789",
+      "duong": "Dong Khoi",
+      "phuong": "Ben Nghe",
+      "quan": "Quan 1",
+      "thanhPho": "Ho Chi Minh"
+    }
+  ],
+  "matKhau": "mypassword",
+  "ngayTao": {
+    "$date": "2023-03-20T00:00:00.000Z"
+  },
+  "vaiTro": "QuanTriVien"
+}]

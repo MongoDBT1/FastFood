@@ -1,0 +1,26 @@
+[{
+  "_id": {
+    "$oid": "66f55d69cbd8c6899125b56b"
+  },
+  "tenKhuyenMai": "Discount 10%",
+  "moTa": "Get 10% off on your next order",
+  "maGiamGia": "DISC10",
+  "loaiGiamGia": "PhanTram",
+  "giaTriGiam": 10,
+  "dieuKienApDung": {
+    "giaTriDonHangToiThieu": 200000,
+    "soLuongSuDungToiDa": 1
+  },
+  "thoiGianBatDau": {
+    "$date": "2024-09-01T00:00:00.000Z"
+  },
+  "thoiGianKetThuc": {
+    "$date": "2024-09-30T00:00:00.000Z"
+  },
+  "danhSachNhaHangApDung": [
+    {
+      "tenNhaHang": "Hoang Tam",
+      "diaChi": "123 Le Loi, Ben Nghe, Quan 1, Ho Chi Minh"
+    }
+  ]
+}]

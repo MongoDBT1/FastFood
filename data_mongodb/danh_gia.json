@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "66f55e05cbd8c6899125b56d"
+  },
+  "donHang": {
+    "maDonHang": {
+      "$oid": "66f55e05cbd8c6899125b56c"
+    },
+    "tenNhaHang": "Hoang Tam",
+    "thoiGianDat": {
+      "$date": "2024-09-23T03:00:00.000Z"
+    }
+  },
+  "khachHang": {
+    "hoTen": "Nguyen Van A",
+    "email": "nguyenvana@example.com"
+  },
+  "diemDanhGia": 5,
+  "noiDung": "Great food and fast delivery!",
+  "hinhAnh": [
+    "review_image1.jpg"
+  ],
+  "ngayDanhGia": {
+    "$date": "2024-09-23T00:00:00.000Z"
+  },
+  "phanHoiNhaHang": {
+    "noiDung": "Thank you for your feedback!",
+    "ngayPhanHoi": {
+      "$date": "2024-09-24T00:00:00.000Z"
+    }
+  }
+}]

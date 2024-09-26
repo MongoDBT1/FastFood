@@ -1,0 +1,244 @@
+[{
+  "_id": {
+    "$oid": "66f55cf0c1805a6b43eb3aa4"
+  },
+  "tenNhaHang": "Hoàng Tâm",
+  "moTa": "Vietnamese restaurant serving traditional dishes",
+  "diaChi": {
+    "soNha": "123",
+    "duong": "Lê Lợi",
+    "phuong": "Bến Nghé",
+    "quan": "Quận 1",
+    "thanhPho": "Hồ Chí Minh"
+  },
+  "soDienThoai": "02866702121",
+  "email": "contact@nhahanghoangtam.vn",
+  "gioMoCua": "08:00",
+  "gioDongCua": "22:00",
+  "danhGia": 4.5,
+  "hinhAnh": [
+    "image1.jpg",
+    "image2.jpg"
+  ],
+  "loaiAmThuc": [
+    "Vietnamese"
+  ],
+  "menu": [
+    {
+      "tenMon": "Gỏi cuốn",
+      "moTa": "Spring rolls with shrimp and pork",
+      "gia": 49000,
+      "hinhAnh": "goi_cuon.jpg",
+      "loaiMon": "KhaiVi",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Chả giò",
+      "moTa": "Fried spring rolls",
+      "gia": 55000,
+      "hinhAnh": "cha_gio.jpg",
+      "loaiMon": "KhaiVi",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Nộm bò khô",
+      "moTa": "Dried beef salad",
+      "gia": 60000,
+      "hinhAnh": "nom_bo_kho.jpg",
+      "loaiMon": "KhaiVi",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Bò bía",
+      "moTa": "Vietnamese spring rolls with dried shrimp and jicama",
+      "gia": 45000,
+      "hinhAnh": "bo_bia.jpg",
+      "loaiMon": "KhaiVi",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Bún bò Huế",
+      "moTa": "Spicy beef noodle soup",
+      "gia": 67000,
+      "hinhAnh": "bun_bo_hue.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Bánh canh cua",
+      "moTa": "Crab tapioca noodle soup",
+      "gia": 84000,
+      "hinhAnh": "banh_canh_cua.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Lẩu Thái",
+      "moTa": "Thai hot pot",
+      "gia": 249000,
+      "hinhAnh": "lau_thai.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Lẩu hải sản",
+      "moTa": "Seafood hot pot",
+      "gia": 289000,
+      "hinhAnh": "lau_hai_san.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Gà nướng muối ớt",
+      "moTa": "Grilled chicken with salt and chili",
+      "gia": 170000,
+      "hinhAnh": "ga_nuong_muoi_ot.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Bò lúc lắc",
+      "moTa": "Shaking beef",
+      "gia": 160000,
+      "hinhAnh": "bo_luc_lac.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Tôm hấp nước dừa",
+      "moTa": "Steamed shrimp with coconut water",
+      "gia": 127000,
+      "hinhAnh": "tom_hap_nuoc_dua.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Cơm tấm sườn bì chả",
+      "moTa": "Broken rice with grilled pork, shredded pork, and egg meatloaf",
+      "gia": 80000,
+      "hinhAnh": "com_tam_suon_bi_cha.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Mì xào hải sản",
+      "moTa": "Seafood fried noodles",
+      "gia": 90000,
+      "hinhAnh": "mi_xao_hai_san.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Chả cá Lã Vọng",
+      "moTa": "La Vong grilled fish",
+      "gia": 150000,
+      "hinhAnh": "cha_ca_la_vong.jpg",
+      "loaiMon": "MonChinh",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Chè ba màu",
+      "moTa": "Three-color dessert",
+      "gia": 40000,
+      "hinhAnh": "che_ba_mau.jpg",
+      "loaiMon": "TrangMieng",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Bánh flan",
+      "moTa": "Flan cake",
+      "gia": 30000,
+      "hinhAnh": "banh_flan.jpg",
+      "loaiMon": "TrangMieng",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Kem dừa",
+      "moTa": "Coconut ice cream",
+      "gia": 35000,
+      "hinhAnh": "kem_dua.jpg",
+      "loaiMon": "TrangMieng",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Trái cây tươi",
+      "moTa": "Fresh fruit",
+      "gia": 45000,
+      "hinhAnh": "trai_cay_tuoi.jpg",
+      "loaiMon": "TrangMieng",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Chè khúc bạch",
+      "moTa": "Almond pudding dessert",
+      "gia": 40000,
+      "hinhAnh": "che_khuc_bach.jpg",
+      "loaiMon": "TrangMieng",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Cà phê sữa đá",
+      "moTa": "Vietnamese iced milk coffee",
+      "gia": 30000,
+      "hinhAnh": "ca_phe_sua_da.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Trà chanh",
+      "moTa": "Lemon tea",
+      "gia": 20000,
+      "hinhAnh": "tra_chanh.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Nước ép cam",
+      "moTa": "Orange juice",
+      "gia": 40000,
+      "hinhAnh": "nuoc_ep_cam.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Nước dừa",
+      "moTa": "Coconut water",
+      "gia": 35000,
+      "hinhAnh": "nuoc_dua.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Sinh tố bơ",
+      "moTa": "Avocado smoothie",
+      "gia": 45000,
+      "hinhAnh": "sinh_to_bo.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Trà sữa",
+      "moTa": "Milk tea",
+      "gia": 30000,
+      "hinhAnh": "tra_sua.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Nước suối",
+      "moTa": "Mineral water",
+      "gia": 15000,
+      "hinhAnh": "nuoc_suoi.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    },
+    {
+      "tenMon": "Nước ngọt",
+      "moTa": "Soft drink",
+      "gia": 20000,
+      "hinhAnh": "nuoc_ngot.jpg",
+      "loaiMon": "NuocUong",
+      "tuyChon": []
+    }
+  ]
+}]

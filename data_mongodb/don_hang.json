@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "66f55e22cbd8c6899125b56e"
+  },
+  "khachHang": {
+    "hoTen": "Nguyen Van A",
+    "email": "nguyenvana@example.com",
+    "soDienThoai": "0912345678"
+  },
+  "nhaHang": {
+    "tenNhaHang": "Hoang Tam",
+    "diaChi": {
+      "soNha": "123",
+      "duong": "Le Loi",
+      "phuong": "Ben Nghe",
+      "quan": "Quan 1",
+      "thanhPho": "Ho Chi Minh"
+    },
+    "soDienThoai": "02866702121"
+  },
+  "trangThai": "DangGiao",
+  "diaChiGiao": {
+    "tenDiaChi": "Home",
+    "soNha": "123",
+    "duong": "Le Loi",
+    "phuong": "Ben Nghe",
+    "quan": "Quan 1",
+    "thanhPho": "Ho Chi Minh"
+  },
+  "thoiGianDat": {
+    "$date": "2024-09-23T03:00:00.000Z"
+  },
+  "thoiGianGiao": {
+    "$date": "2024-09-23T04:00:00.000Z"
+  },
+  "tongTien": 336000,
+  "phuongThucThanhToan": "TienMat",
+  "ghiChu": "",
+  "danhSachMon": [
+    {
+      "tenMon": "Bun Bo Hue",
+      "soLuong": 1,
+      "gia": 67000,
+      "tongGia": 67000,
+      "tuyChonDaChon": []
+    },
+    {
+      "tenMon": "Banh Canh Cua",
+      "soLuong": 2,
+      "gia": 84000,
+      "tongGia": 168000,
+      "tuyChonDaChon": []
+    },
+    {
+      "tenMon": "Lau Thai",
+      "soLuong": 1,
+      "gia": 249000,
+      "tongGia": 249000,
+      "tuyChonDaChon": []
+    }
+  ],
+  "nhanVienGiao": {
+    "hoTen": "Tran Thi B",
+    "soDienThoai": "0987654321"
+  }
+}]
