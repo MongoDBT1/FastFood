@@ -87,7 +87,7 @@
                     </table>
                     <div class="cart-buttons">
                         <a href="cart.html" class="boxed-btn">Update Cart</a>
-                        <a href="{{ route("Checkout") }}" class="boxed-btn black">Check Out</a>
+                        <a href="checkout.html" class="boxed-btn black">Check Out</a>
                     </div>
                 </div>
 
@@ -132,7 +132,5 @@
         </div>
     </div>
 </div>
+<!-- end logo carousel -->
 @endsection
-@push('js')
-
-@endpush
