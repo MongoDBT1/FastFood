@@ -81,10 +81,11 @@
             @foreach($menuItem as $item)
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="single-product-item">
+                        <a href="{{ route('detail', ['nhaHangId' => $item['id'], 'menuIndex' => $item['menu_index']]) }}">
                         <div class="product-image">
-                            <a href="#">
+
                                 <img src="{{ asset($item['hinhAnh']) }}" alt="{{ $item['tenMon'] }}">
-                            </a>
+
                         </div>
                         <h3>{{ $item['tenMon'] }}</h3>
                         <p class="product-price"><span>{{ $item['tenNhaHang'] }}</span> {{ number_format($item['gia'], 0, ',', '.') }}đ </p>
@@ -92,6 +93,7 @@
                             <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
                         </a>
                     </div>
+                </a>
                 </div>
             @endforeach
         </div>

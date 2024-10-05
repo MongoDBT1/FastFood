@@ -23,11 +23,7 @@
                     <!-- menu start -->
                     <nav class="main-menu">
                         <ul>
-                            <li class="current-list-item"><a href="#">Home</a>
-                                <ul class="sub-menu">
-                                    <li><a href="index.html">Static Home</a></li>
-                                    <li><a href="index_2.html">Slider Home</a></li>
-                                </ul>
+                            <li class="current-list-item"><a href="{{ route('home') }}">Home</a>
                             </li>
                             <li><a href="about.html">About</a></li>
                             <li><a href="#">Pages</a>
@@ -40,14 +36,13 @@
                                     <li><a href="news.html">News</a></li>
                                     <li><a href="shop.html">Shop</a></li>
                                 </ul>
+                            </li>@if(Auth::check())
+                            <li>Hello, {{ Auth::user()->hoTen }}</li>
+                            @else
+                            <li><a href="{{ route('login') }}">Login</a>
+                            @endif
                             </li>
-                            <li><a href="news.html">News</a>
-                                <ul class="sub-menu">
-                                    <li><a href="news.html">News</a></li>
-                                    <li><a href="single-news.html">Single News</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="{{ route('logout') }}">Logout</a></li>
                             <li><a href="shop.html">Shop</a>
                                 <ul class="sub-menu">
                                     <li><a href="shop.html">Shop</a></li>
@@ -62,6 +57,7 @@
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
+
                         </ul>
                     </nav>
                     <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>

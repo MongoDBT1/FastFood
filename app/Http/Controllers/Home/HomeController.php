@@ -42,4 +42,26 @@ class HomeController extends Controller
     }
 }
 
+public function details($nhaHangId, $menuIndex)
+{
+    try {
+        // Tìm nhà hàng dựa trên id
+        $nhaHang = NhaHang::find($nhaHangId);
+
+        if ($nhaHang && isset($nhaHang->menu[$menuIndex])) {
+            // Lấy món ăn dựa trên menu index
+            $monAn = $nhaHang->menu[$menuIndex];
+
+            return view('home.index.detail', [
+                'nhaHang' => $nhaHang,
+                'monAn' => $monAn,
+            ]);
+        } else {
+            return redirect()->route('home')->with('error', 'Món ăn không tồn tại.');
+        }
+    } catch (Exception $ex) {
+        return redirect()->route('home')->with('error', 'Lỗi khi truy xuất dữ liệu.');
+    }
+}
+
 }
