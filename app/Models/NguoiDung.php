@@ -11,7 +11,7 @@ class NguoiDung extends Eloquent implements AuthenticatableContract
     use Authenticatable;
 
     protected $connection = 'mongodb';
-    protected $collection = 'NguoiDung';  // Tên collection trong MongoDB
+    protected $collection = 'NguoiDung';
 
     protected $fillable = [
         'hoTen', 'email', 'soDienThoai', 'matKhau', 'vaiTro'
