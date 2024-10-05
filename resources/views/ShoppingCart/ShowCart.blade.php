@@ -17,6 +17,17 @@
 <!-- cart -->
 <div class="cart-section mt-150 mb-150">
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="row">
             <div class="col-lg-8 col-md-12">
                 <div class="cart-table-wrap">
@@ -32,30 +43,37 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                <td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
-                                <td class="product-name">Strawberry</td>
-                                <td class="product-price">$85</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                <td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-                                <td class="product-name">Berry</td>
-                                <td class="product-price">$70</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
-                            <tr class="table-body-row">
-                                <td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-                                <td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-                                <td class="product-name">Lemon</td>
-                                <td class="product-price">$35</td>
-                                <td class="product-quantity"><input type="number" placeholder="0"></td>
-                                <td class="product-total">1</td>
-                            </tr>
+                            @php
+                                $subtotal = 0;
+                            @endphp
+                            @foreach($cart as $nhaHangId => $items)
+                                @foreach($items as $index => $item)
+                                    @php
+                                        $totalPrice = $item['price'] * $item['quantity'];
+                                        $subtotal += $totalPrice;
+                                    @endphp
+                                    <tr class="table-body-row">
+                                        <td class="product-remove">
+                                            <form action="{{ route('cart.remove', [$nhaHangId, $index]) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                <button type="submit" class="btn btn-link"><i class="far fa-window-close"></i></button>
+                                            </form>
+                                        </td>
+                                        <td class="product-image">
+                                            <img src="{{ asset($item['image']) }}" alt="{{ $item['name'] }}">
+                                        </td>
+                                        <td class="product-name">{{ $item['name'] }}</td>
+                                        <td class="product-price">{{ number_format($item['price'], 0, ',', '.') }}đ</td>
+                                        <td class="product-quantity">
+                                            <form action="{{ route('cart.update', [$nhaHangId, $index]) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" onchange="this.form.submit()">
+                                            </form>
+                                        </td>
+                                        <td class="product-total">{{ number_format($totalPrice, 0, ',', '.') }}đ</td>
+                                    </tr>
+                                @endforeach
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -73,20 +91,20 @@
                         <tbody>
                             <tr class="total-data">
                                 <td><strong>Subtotal: </strong></td>
-                                <td>$500</td>
+                                <td>{{ number_format($subtotal, 0, ',', '.') }}đ</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Shipping: </strong></td>
-                                <td>$45</td>
+                                <td>{{ number_format(45, 0, ',', '.') }}đ</td>
                             </tr>
                             <tr class="total-data">
                                 <td><strong>Total: </strong></td>
-                                <td>$545</td>
+                                <td>{{ number_format($subtotal + 45, 0, ',', '.') }}đ</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="cart-buttons">
-                        <a href="cart.html" class="boxed-btn">Update Cart</a>
+                        <a href="#" class="boxed-btn">Update Cart</a>
                         <a href="checkout.html" class="boxed-btn black">Check Out</a>
                     </div>
                 </div>

@@ -89,7 +89,7 @@
                         </div>
                         <h3>{{ $item['tenMon'] }}</h3>
                         <p class="product-price"><span>{{ $item['tenNhaHang'] }}</span> {{ number_format($item['gia'], 0, ',', '.') }}đ </p>
-                        <a href="#" class="cart-btn add-to-cart">
+                        <a href="{{ route('cart.add', ['nhaHangId' => $item['id'], 'menuIndex' => $item['menu_index']]) }}?quantity=1" class="cart-btn">
                             <i class="fas fa-shopping-cart"></i> Thêm vào giỏ hàng
                         </a>
                     </div>
