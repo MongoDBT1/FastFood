@@ -28,8 +28,10 @@ Route::get('/Cart',[CartController::class,'showCart'])->name("ShowCart");
 Route::get('/detail/{nhaHangId}/{menuIndex}',[HomeController::class,'details'])->name('detail');
 // Admin
 Route::get('/admin', function() {
-    return view('admin.index.home');
-})->name('admin.dashboard');
+    return view('admin.index.home')->name('admin');
+});
+
+
 
 
 

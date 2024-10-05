@@ -27,18 +27,12 @@ class AuthController extends Controller
         $nguoiDung = NguoiDung::where('email', $request->email)->first();
 
 
-        if ($nguoiDung) {
+        if ($nguoiDung && $nguoiDung->vaiTro === 'KhachHang') {
             if (Hash::check($request->password, $nguoiDung->matKhau)) {
-                Auth::login($nguoiDung);
 
-                // Kiểm tra vai trò và chuyển hướng tương ứng
-                if ($nguoiDung->vaiTro === 'KhachHang') {
-                    $request->session()->flash('success', 'Đăng nhập thành công');
-                    return redirect()->route('home');
-                } elseif ($nguoiDung->vaiTro === 'QuanTriVien') {
-                    $request->session()->flash('success', 'Đăng nhập thành công với vai trò quản trị viên');
-                    return redirect()->route('admin.dashboard');
-                }
+                Auth::login($nguoiDung);
+                $request->session()->flash('success', 'Đăng nhập thành công');
+                return redirect()->route('home');
             } else {
                 return redirect()->back()->withErrors(['message' => 'Mật khẩu không đúng']);
             }
