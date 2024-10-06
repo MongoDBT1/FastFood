@@ -35,9 +35,9 @@
                             @endif
                             </li>
                             <li><a href="{{ route('logout') }}">Logout</a></li>
-                            <li><a href="shop.html">Shop</a>
+                            <li><a href={{ route('shop.index') }}>Shop</a>
                                 <ul class="sub-menu">
-                                    <li><a href="shop.html">Shop</a></li>
+                                    <li><a href="{{ route('shop.index') }}">Shop</a></li>
                                     <li><a href="checkout.html">Check Out</a></li>
                                     <li><a href="single-product.html">Single Product</a></li>
                                     <li><a href="{{ route('ShowCart') }}">Cart</a></li>
@@ -45,17 +45,12 @@
                             </li>
                             <li>
                                 <div class="header-icons">
-                                    <a class="shopping-cart" href="{{ route('ShowCart') }}"><i class="fas fa-shopping-cart"></i>
-
-                                    </a>
+                                    <a class="shopping-cart" href="{{ route('ShowCart') }}"><i class="fas fa-shopping-cart"></i></a>
                                     <a class="mobile-hide search-bar-icon" href="#"><i class="fas fa-search"></i></a>
                                 </div>
                             </li>
-
                         </ul>
                     </nav>
-                    <a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
-                    <div class="mobile-menu"></div>
                     <!-- menu end -->
                 </div>
             </div>
@@ -70,14 +65,17 @@
         <div class="row">
             <div class="col-lg-12">
                 <span class="close-btn"><i class="fas fa-window-close"></i></span>
-                <div class="search-bar">
-                    <div class="search-bar-tablecell">
-                        <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
-                        <button type="submit">Search <i class="fas fa-search"></i></button>
+                <form action="{{ route('shop.search') }}" method="GET"> 
+                    <div class="search-bar">
+                        <div class="search-bar-tablecell">
+                            <h3>Search For:</h3>
+                            <input type="text" name="keywords" placeholder="Keywords">
+                            <button type="submit">Search <i class="fas fa-search"></i></button>
+                        </div>
                     </div>
-                </div>
+                </form> 
             </div>
         </div>
     </div>
 </div>
+

@@ -31,7 +31,8 @@
                     <p class="single-product-pricing"><span>Giá</span> {{ number_format($monAn['gia']) }} VND</p>
                     <p>{{ $monAn['moTa'] }}</p>
                     <div class="single-product-form">
-                        <a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                        <a href="{{ route('cart.add', ['nhaHangId' => $nhaHang['_id'], 'menuIndex' => $menuIndex]) }}" class="cart-btn">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart</a>
                         <p><strong>Loại món: </strong>{{ $monAn['loaiMon'] }}</p>
                     </div>
                     <h4>Chia sẻ:</h4>

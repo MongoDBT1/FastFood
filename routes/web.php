@@ -7,6 +7,7 @@ use App\Http\Controllers\ShoppingCart\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\AuthController;
 use App\Http\Controllers\Home\OrderController;
+use App\Http\Controllers\Home\ProductController;
 use App\Http\Controllers\Admin\OrderAdminController;
 
 // Login
@@ -16,7 +17,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
-
+// Check out
 Route::middleware(['auth'])->group(function () {
     Route::get('/Checkout',[BillController::class,'Checkout'])->name("Checkout");
     Route::post('/Checkout/update', [BillController::class,'update'])->name("checkout.update");
@@ -32,7 +33,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 // Shopping Cart
-Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/cart/add/{nhaHangId}/{menuIndex}', [CartController::class, 'add'])->name('cart.add');
 
 Route::get('/Cart',[CartController::class,'showCart'])->name("ShowCart");
@@ -47,7 +47,10 @@ Route::get('/admin', function() {
     return view('admin.index.home');
 })->name('admin');
 
-
+// Home
+Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/shop', [ProductController::class, 'getAllProducts'])->name('shop.index');
+Route::get('/search', [ProductController::class, 'search'])->name('shop.search');
 
 
 
