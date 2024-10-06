@@ -8,10 +8,11 @@ use App\Enums\OrderStatus;
 class donhang extends Model
 {
     use HasFactory;
-    protected $collection='don_hang';
-    protected $fillable = ['khachHang', 'nhaHang', 'trangThai', 'diaChiGiao',
+    protected $collection='don_hang';   
+    protected $fillable = ['khachHang', 'trangThai', 'diaChiGiao',
         'thoiGianDat', 'thoiGianGiao', 'tongTien', 'phuongThucThanhToan',
         'ghiChu', 'danhSachMon', 'nhanVienGiao'];
+
         public function setTrangThaiAttribute($value)
         {
             if (!in_array($value, OrderStatus::getStatuses())) {

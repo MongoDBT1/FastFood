@@ -18,7 +18,7 @@
                     <!-- Nút điều hướng -->
                     <div class="d-flex justify-content-center">
                         <a href="{{ route('home') }}" class="btn btn-primary me-3">Tiếp tục mua sắm</a>
-                        <a href="#" class="btn btn-outline-secondary">Xem đơn hàng</a>
+                        <a href="{{ route('orders.index') }}" class="btn btn-outline-secondary">Xem đơn hàng</a>
                     </div>
                 </div>
             </div>

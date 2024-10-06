@@ -14,7 +14,7 @@ class OrderAdminController extends Controller
         $nhaHangId = session('nhaHangId');
         $nhaHang = NhaHang::find($nhaHangId);
         // Truy xuất tất cả đơn hàng liên quan đến nhà hàng đang đăng nhập
-        $donHang = donhang::where('nhaHang.tenNhaHang', $nhaHang->tenNhaHang)->get();
+        $donHang = donhang::where('danhSachMon.nhaHang.tenNhaHang', $nhaHang->tenNhaHang)->get();
         return view('admin.index.Order', ['donHang' => $donHang]);
     }
     public function show($id)
@@ -25,8 +25,8 @@ class OrderAdminController extends Controller
     }
     public function updateStatus(Request $request, $id)
     {
-         $donHang = donhang::find($id);
-         $donHang->trangThai = $request->trangThai;
+        $donHang = donhang::find($id);
+        $donHang->trangThai = $request->trangThai;
         $donHang->save();
 
         return redirect()->route('admin.orders.show', $id)->with('success', 'Cập nhật trạng thái thành công');

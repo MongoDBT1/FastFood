@@ -33,17 +33,17 @@
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                           <div class="card-body">
                             <div class="billing-address-form">
-                                <form action="index.html">
-                                    <p><input type="text" placeholder="Name"></p>
-                                    <p><input type="email" placeholder="Email"></p>
-                                    <p><input type="text" placeholder="Address"></p>
-                                    <p><input type="tel" placeholder="Phone"></p>
-                                    <p><textarea name="bill" id="bill" cols="30" rows="10" placeholder="Say Something"></textarea></p>
-                                </form>
+                                <form action="{{ route('checkout.update') }}" method="post" id="form-checkout">
+                                    @csrf
+                                    <p><input type="text" name="name" placeholder="Name" value="{{Auth::user()->hoTen}}"></p>
+                                    <p><input type="email" name="email" placeholder="Email" value="{{Auth::user()->email}}"></p>
+                                    <p><input type="tel" name="phone" placeholder="Phone" value="{{Auth::user()->soDienThoai}}"></p>
+                                    <p><textarea name="note" id="bill" cols="30" rows="10" placeholder="Ghi chú"></textarea></p>
                             </div>
                           </div>
                         </div>
                       </div>
+
                       <div class="card single-accordion">
                         <div class="card-header" id="headingTwo">
                           <h5 class="mb-0">
@@ -55,7 +55,12 @@
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                           <div class="card-body">
                             <div class="shipping-address-form">
-                                <p>Your shipping address form is here.</p>
+                              <p><input type="text" name="tendiachi" placeholder="Tên địa chỉ" ></p>
+                              <p><input type="text" name="sonha" placeholder="Số nhà" ></p>
+                              <p><input type="text" name="duong" placeholder="Đường" ></p>
+                              <p><input type="text" name="phuong" placeholder="Phường" ></p>
+                              <p><input type="text" name="quan" placeholder="Quận" ></p>
+                              <p><input type="text" name="thanhpho" placeholder="Thành phố" ></p>
                             </div>
                           </div>
                         </div>
@@ -64,20 +69,48 @@
                         <div class="card-header" id="headingThree">
                           <h5 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                              Card Details
+                              Cart Details
                             </button>
                           </h5>
                         </div>
                         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                           <div class="card-body">
                             <div class="card-details">
-                                <p>Your card details goes here.</p>
+                              <div class="cart-table-wrap">
+                                  <table class="cart-table">
+                                    <thead class="cart-table-head">
+                                        <tr class="table-head-row">
+                                            <th class="product-name">Name</th>
+                                            <th class="product-quantity">Quantity</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product-total">Total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      @php $subtotal = 0; @endphp
+                                      @foreach($cart as $nhaHangId => $items)
+                                        @foreach($items as $index => $item)
+                                          @php
+                                            $totalPrice = $item['price'] * $item['quantity'];
+                                            $subtotal += $totalPrice;
+                                          @endphp
+                                          <tr class="table-body-row">
+                                            <td class="product-name">{{ $item['name'] }}</td>
+                                            <td class="product-quantity">{{ $item['quantity']}} </td>
+                                            <td class="product-price">{{ number_format($item['price'], 0, ',', '.') }}đ</td>
+                                            <td class="product-total">{{ number_format($totalPrice, 0, ',', '.') }}đ</td>
+                                          </tr>
+                                          <input type="hidden" name="nhaHangId[]" value="{{ $nhaHangId }}">
+                                        @endforeach
+                                      @endforeach
+                                    </tbody>
+                                  </table>
+                                </div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-
                 </div>
             </div>
 
@@ -86,44 +119,41 @@
                     <table class="order-details">
                         <thead>
                             <tr>
-                                <th>Your order Details</th>
-                                <th>Price</th>
+                                <th><strong>Your order Details</strong></th>
+                                <th><strong>Price</strong></th>
                             </tr>
                         </thead>
                         <tbody class="order-details-body">
                             <tr>
-                                <td>Product</td>
-                                <td>Total</td>
+                                <td><strong>Product</strong></td>
+                                <td><strong>Total</strong></td>
                             </tr>
-                            <tr>
-                                <td>Strawberry</td>
-                                <td>$85.00</td>
-                            </tr>
-                            <tr>
-                                <td>Berry</td>
-                                <td>$70.00</td>
-                            </tr>
-                            <tr>
-                                <td>Lemon</td>
-                                <td>$35.00</td>
-                            </tr>
+                            @php $subtotal = 0; @endphp
+                            @foreach($cart as $nhaHangId => $items)
+                              @foreach($items as $index => $item)
+                                @php 
+                                  $totalPrice = $item['price'] * $item['quantity'];
+                                  $subtotal += $totalPrice;
+                                @endphp
+                                <tr>
+                                    <td>{{ $item['name'] }}</td>
+                                    <td>{{ number_format($totalPrice, 0, ',', '.') }}đ</td>
+                                </tr>
+                              @endforeach
+                            @endforeach
                         </tbody>
+
                         <tbody class="checkout-details">
                             <tr>
-                                <td>Subtotal</td>
-                                <td>$190</td>
-                            </tr>
-                            <tr>
-                                <td>Shipping</td>
-                                <td>$50</td>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td>$240</td>
+                                <td><strong>Total</strong></td>
+                                <td>{{ number_format($subtotal, 0, ',', '.') }}đ</td>
+                                <p style="visibility: hidden;"><input type="text" name="subtotal" value="{{ $subtotal  }}"></p>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="{{ route('Success') }}" class="boxed-btn">Place Order</a>
+                    </form>
+                    <button type="submit" name="submit" id="btn-submit" class="btn primary-btn" style="border: black 1px solid; background-color:orange"
+                                onclick="document.querySelector('#form-checkout').submit()">Place Order</button>
                 </div>
             </div>
         </div>
@@ -131,30 +161,4 @@
 </div>
 <!-- end check out section -->
 
-<!-- logo carousel -->
-<div class="logo-carousel-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="logo-carousel-inner">
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/1.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/2.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/3.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/4.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

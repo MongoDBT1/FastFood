@@ -18,18 +18,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
-
-
         $nguoiDung = NguoiDung::where('email', $request->email)->first();
-
-
         if ($nguoiDung) {
-
             if ($nguoiDung->vaiTro === 'KhachHang') {
                 if (Hash::check($request->password, $nguoiDung->matKhau)) {
                     Auth::login($nguoiDung);
@@ -40,17 +34,12 @@ class AuthController extends Controller
                 }
             }
 
-
             elseif ($nguoiDung->vaiTro === 'NhaHang') {
                 if (Hash::check($request->password, $nguoiDung->matKhau)) {
-
                     $nhaHang = NhaHang::where('email', $nguoiDung->email)
                         ->orWhere('soDienThoai', $nguoiDung->soDienThoai)
                         ->first();
-
-
                     if ($nhaHang) {
-
                         Auth::login($nguoiDung);
                         session(['nhaHangId' => $nhaHang->_id]);
                         $request->session()->flash('success', 'Đăng nhập thành công');
@@ -63,7 +52,6 @@ class AuthController extends Controller
                 }
             }
         }
-
         return redirect()->back()->withErrors(['message' => 'Sai thông tin đăng nhập']);
     }
 

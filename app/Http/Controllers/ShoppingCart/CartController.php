@@ -12,12 +12,10 @@ class CartController extends Controller
 
     public function add($nhaHangId, $menuIndex, Request $request)
     {
-
         $cart = Session::get('cart', []);
         if (isset($cart[$nhaHangId][$menuIndex])) {
             $cart[$nhaHangId][$menuIndex]['quantity'] += $request->input('quantity', 1);
         } else {
-
             $menuItem = NhaHang::find($nhaHangId)->menu[$menuIndex];
             $cart[$nhaHangId][$menuIndex] = [
                 'name' => $menuItem['tenMon'],
@@ -26,6 +24,7 @@ class CartController extends Controller
                 'image' => $menuItem['hinhAnh']
             ];
         }
+        
         Session::put('cart', $cart);
         return redirect()->route('ShowCart')->with('success', 'Đã thêm món ăn vào giỏ hàng!');
     }
@@ -39,7 +38,6 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
 
-
         if (isset($cart[$nhaHangId][$menuIndex])) {
             $quantity = request()->input('quantity', 1);
             $cart[$nhaHangId][$menuIndex]['quantity'] = $quantity;
@@ -52,7 +50,6 @@ class CartController extends Controller
     public function remove($nhaHangId, $menuIndex)
     {
         $cart = session()->get('cart', []);
-
 
         if (isset($cart[$nhaHangId][$menuIndex])) {
             unset($cart[$nhaHangId][$menuIndex]);

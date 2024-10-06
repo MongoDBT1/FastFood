@@ -83,9 +83,7 @@
                     <div class="single-product-item">
                         <a href="{{ route('detail', ['nhaHangId' => $item['id'], 'menuIndex' => $item['menu_index']]) }}">
                         <div class="product-image">
-
                                 <img src="{{ asset($item['hinhAnh']) }}" alt="{{ $item['tenMon'] }}">
-
                         </div>
                         <h3>{{ $item['tenMon'] }}</h3>
                         <p class="product-price"><span>{{ $item['tenNhaHang'] }}</span> {{ number_format($item['gia'], 0, ',', '.') }}đ </p>

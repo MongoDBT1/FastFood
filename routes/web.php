@@ -8,14 +8,19 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\AuthController;
 use App\Http\Controllers\Home\OrderController;
 use App\Http\Controllers\Admin\OrderAdminController;
+
+// Login
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
+
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/Checkout',[BillController::class,'Checkout'])->name("Checkout");
-    Route::get('/Checkout/success',[BillController::class,'Success'])->name("Success");
+    Route::post('/Checkout/update', [BillController::class,'update'])->name("checkout.update");
+    Route::get('/Checkout/success',[BillController::class,'Success'])->name("checkout.success");
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::post('/orders/cancel/{id}', [OrderController::class, 'cancelOrder'])->name('orders.cancel');
     Route::post('/orders/receive/{id}', [OrderController::class, 'receiveOrder'])->name('orders.receive');
@@ -26,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
+// Shopping Cart
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/cart/add/{nhaHangId}/{menuIndex}', [CartController::class, 'add'])->name('cart.add');
 
@@ -35,6 +41,7 @@ Route::post('/cart/remove/{nhaHangId}/{menuIndex}', [CartController::class, 'rem
 
 
 Route::get('/detail/{nhaHangId}/{menuIndex}',[HomeController::class,'details'])->name('detail');
+
 // Admin
 Route::get('/admin', function() {
     return view('admin.index.home');

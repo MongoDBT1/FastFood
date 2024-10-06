@@ -128,7 +128,7 @@
                         <span>Settings</span>
                     </a>
                     <!-- item-->
-                    <a href="" class="dropdown-item notify-item">
+                    <a href="{{ route('logout') }}" class="dropdown-item notify-item">
                         <i class="mdi mdi-logout mr-1"></i>
                         <span>Logout</span>
                     </a>

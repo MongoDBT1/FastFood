@@ -14,7 +14,7 @@ class NguoiDung extends Eloquent implements AuthenticatableContract
     protected $collection = 'NguoiDung';
 
     protected $fillable = [
-        'hoTen', 'email', 'soDienThoai', 'matKhau', 'vaiTro'
+        'hoTen', 'email', 'soDienThoai', 'diaChi', 'matKhau', 'vaiTro'
     ];
 
     protected $hidden = [

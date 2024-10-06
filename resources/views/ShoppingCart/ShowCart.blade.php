@@ -90,22 +90,14 @@
                         </thead>
                         <tbody>
                             <tr class="total-data">
-                                <td><strong>Subtotal: </strong></td>
-                                <td>{{ number_format($subtotal, 0, ',', '.') }}đ</td>
-                            </tr>
-                            <tr class="total-data">
-                                <td><strong>Shipping: </strong></td>
-                                <td>{{ number_format(45, 0, ',', '.') }}đ</td>
-                            </tr>
-                            <tr class="total-data">
                                 <td><strong>Total: </strong></td>
-                                <td>{{ number_format($subtotal + 45, 0, ',', '.') }}đ</td>
+                                <td>{{ number_format($subtotal, 0, ',', '.') }}đ</td>
                             </tr>
                         </tbody>
                     </table>
                     <div class="cart-buttons">
                         <a href="#" class="boxed-btn">Update Cart</a>
-                        <a href="checkout.html" class="boxed-btn black">Check Out</a>
+                        <a href="{{route('Checkout')}}" class="boxed-btn black">Check Out</a>
                     </div>
                 </div>
 
@@ -124,31 +116,4 @@
 </div>
 <!-- end cart -->
 
-<!-- logo carousel -->
-<div class="logo-carousel-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="logo-carousel-inner">
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/1.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/2.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/3.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/4.png" alt="">
-                    </div>
-                    <div class="single-logo-item">
-                        <img src="assets/img/company-logos/5.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- end logo carousel -->
 @endsection
