@@ -63,17 +63,6 @@
     email: String,
     soDienThoai: String
   },
-  nhaHang: {
-    tenNhaHang: String,
-    diaChi: {
-      soNha: String,
-      duong: String,
-      phuong: String,
-      quan: String,
-      thanhPho: String
-    },
-    soDienThoai: String
-  },
   trangThai: String, // "ChoXacNhan", "DangChuanBi", "DangGiao", "DaGiao", "DaHuy"
   diaChiGiao: {
     tenDiaChi: String,
@@ -99,7 +88,18 @@
           tenTuyChon: String,
           giaBoSung: Number
         }
-      ]
+      ],
+      nhaHang: {
+        tenNhaHang: String,
+        diaChi: {
+          soNha: String,
+          duong: String,
+          phuong: String,
+          quan: String,
+          thanhPho: String
+        },
+        soDienThoai: String
+      }
     }
   ],
   nhanVienGiao: {
