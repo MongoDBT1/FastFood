@@ -51,7 +51,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Foods</a>
+                    <a href="{{ route('listmenu') }}">Foods</a>
                 </li>
 
                 <li>

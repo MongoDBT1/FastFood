@@ -47,12 +47,10 @@ class AuthController extends Controller
                     $nhaHang = NhaHang::where('email', $nguoiDung->email)
                         ->orWhere('soDienThoai', $nguoiDung->soDienThoai)
                         ->first();
-
-
                     if ($nhaHang) {
-
                         Auth::login($nguoiDung);
                         session(['nhaHangId' => $nhaHang->_id]);
+                        //dd(session('nhaHangId'));
                         $request->session()->flash('success', 'Đăng nhập thành công');
                         return redirect()->route('admin');
                     } else {
@@ -105,5 +103,11 @@ class AuthController extends Controller
         // Hiển thị thông báo thành công và chuyển hướng về trang chủ
         $request->session()->flash('success', 'Đăng ký thành công');
         return redirect()->route('home');
+    }
+
+    //crud
+    public function showSp()
+    {
+
     }
 }
