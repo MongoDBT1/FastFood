@@ -7,6 +7,7 @@ use App\Http\Controllers\ShoppingCart\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\AuthController;
 use App\Http\Controllers\Home\OrderController;
+use App\Http\Controllers\Admin\OrderAdminController;
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -18,6 +19,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::post('/orders/cancel/{id}', [OrderController::class, 'cancelOrder'])->name('orders.cancel');
     Route::post('/orders/receive/{id}', [OrderController::class, 'receiveOrder'])->name('orders.receive');
+
+    Route::get('/admin/orders', [OrderAdminController::class, 'index'])->name('admin.orders');
+    Route::get('/admin/orders/{id}', [OrderAdminController::class, 'show'])->name('admin.orders.show');
+    Route::post('/admin/orders/{id}/update-status', [OrderAdminController::class, 'updateStatus'])->name('admin.orders.update-status');
+
 });
 
 Route::get('/',[HomeController::class,'index'])->name('home');

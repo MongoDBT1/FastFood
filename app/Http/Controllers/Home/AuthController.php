@@ -54,8 +54,6 @@ class AuthController extends Controller
                         Auth::login($nguoiDung);
                         session(['nhaHangId' => $nhaHang->_id]);
                         $request->session()->flash('success', 'Đăng nhập thành công');
-
-                     dd(session('nhaHangId'));
                         return redirect()->route('admin');
                     } else {
                         return redirect()->back()->withErrors(['message' => 'Không tìm thấy nhà hàng tương ứng.']);
@@ -66,7 +64,6 @@ class AuthController extends Controller
             }
         }
 
-        // Nếu không tìm thấy người dùng hoặc không khớp thông tin
         return redirect()->back()->withErrors(['message' => 'Sai thông tin đăng nhập']);
     }
 

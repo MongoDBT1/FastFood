@@ -88,7 +88,7 @@
                         @if ($errors->any())
                         <div>
                     <strong>{{ $errors->first() }}</strong>
-        </div>
+                        </div>
                         @endif
                     </form>
                 </div>
