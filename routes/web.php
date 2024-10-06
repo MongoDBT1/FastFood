@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/cart/add/{nhaHangId}/{menuIndex}', [CartController::class, 'add'])->name('cart.add');
+
 Route::get('/Cart',[CartController::class,'showCart'])->name("ShowCart");
 Route::post('/cart/update/{nhaHangId}/{menuIndex}', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove/{nhaHangId}/{menuIndex}', [CartController::class, 'remove'])->name('cart.remove');
@@ -30,8 +31,8 @@ Route::post('/cart/remove/{nhaHangId}/{menuIndex}', [CartController::class, 'rem
 Route::get('/detail/{nhaHangId}/{menuIndex}',[HomeController::class,'details'])->name('detail');
 // Admin
 Route::get('/admin', function() {
-    return view('admin.index.home')->name('admin');
-});
+    return view('admin.index.home');
+})->name('admin');
 
 
 
