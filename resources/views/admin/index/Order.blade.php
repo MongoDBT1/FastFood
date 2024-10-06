@@ -28,9 +28,7 @@
                     <td>{{ $order->trangThai }}</td>
                     <td>{{ date('d/m/Y H:i', strtotime($order->thoiGianDat)) }}</td>
                     <td>
-                        <!-- Các nút để xem chi tiết đơn hàng, thay đổi trạng thái đơn hàng, v.v. -->
                         <a href="{{ route('admin.orders.show', $order->_id) }}" class="btn btn-primary">Xem chi tiết</a>
-                        <!-- Thêm các hành động khác nếu cần -->
                     </td>
                 </tr>
             @endforeach
