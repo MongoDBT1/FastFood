@@ -55,9 +55,9 @@ class BillController extends Controller
                         $danhSachMon[] = [
                             'tenMon' => $item['name'],
                             'loaiMon' => $item['loaiMon'],
-                            'soLuong' => $item['quantity'],
+                            'soLuong' => (int) $item['quantity'],
                             'gia' => $item['price'],
-                            'tongGia' => $item['price'] * $item['quantity'],
+                            'tongGia' => $item['price'] * (int) $item['quantity'],
                             'tuyChonDaChon' => [],
                             'nhaHang' => [
                                 'tenNhaHang' => $nhaHang['tenNhaHang'],
