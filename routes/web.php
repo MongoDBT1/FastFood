@@ -9,6 +9,7 @@ use App\Http\Controllers\Home\AuthController;
 use App\Http\Controllers\Home\OrderController;
 use App\Http\Controllers\Home\ProductController;
 use App\Http\Controllers\Admin\OrderAdminController;
+use App\Http\Controllers\Admin\DashboardController;
 
 // Login
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
@@ -29,7 +30,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/orders', [OrderAdminController::class, 'index'])->name('admin.orders');
     Route::get('/admin/orders/{id}', [OrderAdminController::class, 'show'])->name('admin.orders.show');
     Route::post('/admin/orders/{id}/update-status', [OrderAdminController::class, 'updateStatus'])->name('admin.orders.update-status');
-
+    Route::get('/admin', [DashboardController::class, 'index'])->name('admin');
+    Route::get('/admin/get-chart-data', [DashboardController::class, 'getChartData'])->name('admin.getChartData');
+    Route::get('/admin/get-chart-categories', [DashboardController::class, 'getChartCategories'])->name('admin.getChartCategories');
+    
 });
 
 // Shopping Cart
@@ -41,11 +45,6 @@ Route::post('/cart/remove/{nhaHangId}/{menuIndex}', [CartController::class, 'rem
 
 
 Route::get('/detail/{nhaHangId}/{menuIndex}',[HomeController::class,'details'])->name('detail');
-
-// Admin
-Route::get('/admin', function() {
-    return view('admin.index.home');
-})->name('admin');
 
 // Home
 Route::get('/',[HomeController::class,'index'])->name('home');

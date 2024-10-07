@@ -21,7 +21,8 @@ class CartController extends Controller
                 'name' => $menuItem['tenMon'],
                 'price' => $menuItem['gia'],
                 'quantity' => $request->input('quantity', 1),
-                'image' => $menuItem['hinhAnh']
+                'image' => $menuItem['hinhAnh'],
+                'loaiMon' => $menuItem['loaiMon']   
             ];
         }
         

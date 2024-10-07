@@ -54,6 +54,7 @@ class BillController extends Controller
                     foreach ($items as $item) {
                         $danhSachMon[] = [
                             'tenMon' => $item['name'],
+                            'loaiMon' => $item['loaiMon'],
                             'soLuong' => $item['quantity'],
                             'gia' => $item['price'],
                             'tongGia' => $item['price'] * $item['quantity'],
