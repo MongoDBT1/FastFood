@@ -80,6 +80,7 @@
   danhSachMon: [
     {
       tenMon: String,
+      loaiMon: String,
       soLuong: Number,
       gia: Number,
       tongGia: Number,
