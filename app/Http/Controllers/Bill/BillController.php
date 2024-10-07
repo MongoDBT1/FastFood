@@ -25,7 +25,7 @@ class BillController extends Controller
                 $cart = Session::get('cart', []);
 
                 $donhang = new donhang();
-                
+
                 $donhang->khachHang = [
                     'hoTen' => $request->input('name'),
                     'email' => $request->input('email'),
@@ -47,7 +47,7 @@ class BillController extends Controller
                 $donhang->tongTien = $request->input('subtotal');
                 $donhang->phuongThucThanhToan = 'TienMat';
                 $donhang->ghiChu = $request->input('note');
-                
+
                 $danhSachMon = [];
                 foreach ($cart as $nhaHangId => $items) {
                     $nhaHang = NhaHang::find($nhaHangId);
@@ -73,7 +73,7 @@ class BillController extends Controller
                         ];
                     }
                 }
-                
+
                 $donhang->danhSachMon = $danhSachMon;
 
                 $donhang->save();
@@ -86,6 +86,7 @@ class BillController extends Controller
 
     public function Success()
     {
+        Session::forget('cart');
         return view('Bill.CheckOutSuccess');
     }
 }

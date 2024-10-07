@@ -7,6 +7,7 @@ use App\Http\Controllers\ShoppingCart\CartController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\AuthController;
 use App\Http\Controllers\Home\OrderController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Home\ProductController;
 use App\Http\Controllers\Admin\OrderAdminController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -33,7 +34,12 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [DashboardController::class, 'index'])->name('admin');
     Route::get('/admin/get-chart-data', [DashboardController::class, 'getChartData'])->name('admin.getChartData');
     Route::get('/admin/get-chart-categories', [DashboardController::class, 'getChartCategories'])->name('admin.getChartCategories');
-    
+
+
+    Route::get('/admin/menu',[MenuController::class,'ListMenu'])->name('listmenu');
+    Route::delete('/admin/menu/delete/{menuIndex}', [MenuController::class, 'deleteMenuItem'])->name('admin.menu.delete');
+    Route::post('/admin/menu/edit/{menuIndex}', [MenuController::class, 'editMenuItem'])->name('admin.menu.edit');
+    Route::post('/admin/menu/add', [MenuController::class, 'addMenuItem'])->name('admin.menu.add');
 });
 
 // Shopping Cart
